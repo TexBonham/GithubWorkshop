@@ -1,0 +1,11 @@
+{
+  "id": "bug-13",
+  "number": 13,
+  "language": "python",
+  "title": "Sum of squares will not even run",
+  "difficulty": "easy",
+  "file": "sum_of_squares.py",
+  "test": "test_sum_of_squares.py",
+  "summary": "`sum_of_squares(numbers)` should return the total of each number multiplied by itself. `sum_of_squares([1, 2, 3])` should return `14`, but Python reports an error before running anything.",
+  "hint": "Python statements that start a block need a special character at the end of the line."
+}

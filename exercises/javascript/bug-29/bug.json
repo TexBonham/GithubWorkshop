@@ -1,0 +1,11 @@
+{
+  "id": "bug-29",
+  "number": 29,
+  "language": "javascript",
+  "title": "Cart total ignores quantity",
+  "difficulty": "easy",
+  "file": "cart.js",
+  "test": "cart.test.js",
+  "summary": "`cartTotal(items)` should add up `price * quantity` for each item, e.g. `cartTotal([{ price: 2, quantity: 3 }])` returns `6`. Right now it returns `2`.",
+  "hint": "Each line of the cart should count the price once per item bought."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bug-43",
+  "number": 43,
+  "language": "cpp",
+  "title": "Average of sensor readings loses its decimals",
+  "difficulty": "easy",
+  "file": "sensor.cpp",
+  "test": "test_sensor.cpp",
+  "summary": "`average_reading(values)` should return the average of integer sensor readings as a decimal number (`0` for an empty vector). `average_reading({1, 2})` should be `1.5` but returns `1`.",
+  "hint": "What kind of division happens when both sides are `int`?"
+}

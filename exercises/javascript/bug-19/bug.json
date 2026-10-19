@@ -1,0 +1,11 @@
+{
+  "id": "bug-19",
+  "number": 19,
+  "language": "javascript",
+  "title": "Capitalize doubles the first letter",
+  "difficulty": "easy",
+  "file": "capitalize.js",
+  "test": "capitalize.test.js",
+  "summary": "`capitalize(word)` should return the word with its first letter in upper case, e.g. `capitalize(\"hello\")` returns `\"Hello\"`. Right now it returns `\"HHello\"`.",
+  "hint": "Look at where `slice` starts counting."
+}

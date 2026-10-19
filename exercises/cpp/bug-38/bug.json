@@ -1,0 +1,11 @@
+{
+  "id": "bug-38",
+  "number": 38,
+  "language": "cpp",
+  "title": "Sum of a vector skips the first element",
+  "difficulty": "easy",
+  "file": "total.cpp",
+  "test": "test_total.cpp",
+  "summary": "`sum_all(values)` should add up every number in a vector (and return `0` for an empty one). `sum_all({1, 2, 3})` should be `6` but returns `5`.",
+  "hint": "Which index does the first element of a vector have?"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bug-48",
+  "number": 48,
+  "language": "cpp",
+  "title": "Character counter will not compile",
+  "difficulty": "easy",
+  "file": "counter.cpp",
+  "test": "test_counter.cpp",
+  "summary": "`count_char(text, target)` should return how many times `target` appears in `text`. `count_char(\"banana\", 'a')` should be `3`, but the file does not compile at all.",
+  "hint": "The compiler error points at a line that is missing something at its end."
+}

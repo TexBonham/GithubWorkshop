@@ -1,0 +1,11 @@
+{
+  "id": "bug-07",
+  "number": 7,
+  "language": "python",
+  "title": "Factorial is too small",
+  "difficulty": "easy",
+  "file": "factorial.py",
+  "test": "test_factorial.py",
+  "summary": "`factorial(n)` should multiply all whole numbers from 1 up to and including `n`. Right now `factorial(5)` returns `24` instead of `120`.",
+  "hint": "Does `range` include its last number?"
+}

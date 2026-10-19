@@ -1,0 +1,11 @@
+{
+  "id": "bug-11",
+  "number": 11,
+  "language": "python",
+  "title": "Word counter is thrown off by extra spaces",
+  "difficulty": "medium",
+  "file": "word_count.py",
+  "test": "test_word_count.py",
+  "summary": "`word_count(text)` should return how many words are in the text, where words are separated by one or more spaces. Right now `word_count(\"hello   world\")` returns `4` instead of `2`, and `word_count(\"\")` returns `1` instead of `0`.",
+  "hint": "Look at what `split` is given. Calling it with no arguments treats any run of spaces as one gap."
+}

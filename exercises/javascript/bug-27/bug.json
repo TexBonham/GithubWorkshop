@@ -1,0 +1,11 @@
+{
+  "id": "bug-27",
+  "number": 27,
+  "language": "javascript",
+  "title": "Repeat string repeats one time too many",
+  "difficulty": "easy",
+  "file": "repeat.js",
+  "test": "repeat.test.js",
+  "summary": "`repeatString(text, times)` should return `text` repeated `times` times, e.g. `repeatString(\"ab\", 3)` returns `\"ababab\"`. Right now it returns `\"abababab\"`.",
+  "hint": "Count how many times the loop runs when `times` is 3."
+}

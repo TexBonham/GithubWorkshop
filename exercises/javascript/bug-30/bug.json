@@ -1,0 +1,11 @@
+{
+  "id": "bug-30",
+  "number": 30,
+  "language": "javascript",
+  "title": "Password of exactly 8 characters is rejected",
+  "difficulty": "easy",
+  "file": "password.js",
+  "test": "password.test.js",
+  "summary": "`isLongEnough(password)` should return `true` when the password has at least 8 characters, e.g. `isLongEnough(\"abcdefgh\")` should be `true` but returns `false`.",
+  "hint": "Think about whether exactly 8 characters should count."
+}

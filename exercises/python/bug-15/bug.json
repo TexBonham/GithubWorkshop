@@ -1,0 +1,11 @@
+{
+  "id": "bug-15",
+  "number": 15,
+  "language": "python",
+  "title": "Longest word comes back empty",
+  "difficulty": "easy",
+  "file": "longest_word.py",
+  "test": "test_longest_word.py",
+  "summary": "`longest_word(words)` should return the longest string in a list of words. Right now `longest_word([\"hi\", \"hello\", \"hey\"])` returns an empty string instead of `\"hello\"`.",
+  "hint": "Check which direction the length comparison points."
+}

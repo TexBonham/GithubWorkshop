@@ -1,0 +1,11 @@
+{
+  "id": "bug-02",
+  "number": 2,
+  "language": "python",
+  "title": "Celsius to Fahrenheit gives the wrong temperature",
+  "difficulty": "easy",
+  "file": "fahrenheit.py",
+  "test": "test_fahrenheit.py",
+  "summary": "`fahrenheit(celsius)` should convert degrees Celsius to Fahrenheit: multiply by 9/5, then add 32. Right now `fahrenheit(100)` does not return `212`.",
+  "hint": "Check the sign in front of the 32."
+}

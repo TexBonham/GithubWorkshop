@@ -1,0 +1,11 @@
+{
+  "id": "bug-36",
+  "number": 36,
+  "language": "cpp",
+  "title": "Ohm's law current comes out upside down",
+  "difficulty": "easy",
+  "file": "current.cpp",
+  "test": "test_current.cpp",
+  "summary": "`current(volts, ohms)` should return the current in amps using Ohm's law (I = V / R). `current(10, 5)` should be `2`, but it returns `0.5`.",
+  "hint": "Which quantity goes on top in I = V / R?"
+}

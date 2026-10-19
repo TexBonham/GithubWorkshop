@@ -1,0 +1,11 @@
+{
+  "id": "bug-22",
+  "number": 22,
+  "language": "javascript",
+  "title": "Occurrence counter counts everything else",
+  "difficulty": "easy",
+  "file": "occurrences.js",
+  "test": "occurrences.test.js",
+  "summary": "`countOccurrences(items, target)` should count how many times `target` appears in `items`, e.g. `countOccurrences([\"a\", \"b\", \"a\"], \"a\")` returns `2`. Right now it returns `1`.",
+  "hint": "Look at the comparison inside the `if`."
+}

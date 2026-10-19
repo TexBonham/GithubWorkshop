@@ -1,0 +1,11 @@
+{
+  "id": "bug-05",
+  "number": 5,
+  "language": "python",
+  "title": "Removing duplicates keeps only the duplicates",
+  "difficulty": "medium",
+  "file": "unique.py",
+  "test": "test_unique.py",
+  "summary": "`unique(items)` should return a new list with each value only once, in the order it first appeared. `unique([1, 2, 2, 3, 1])` should return `[1, 2, 3]`, but right now it returns an empty list.",
+  "hint": "Read the `if` line out loud. When should an item be added to `result`?"
+}

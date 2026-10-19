@@ -1,0 +1,11 @@
+{
+  "id": "bug-42",
+  "number": 42,
+  "language": "cpp",
+  "title": "Reversing a string drops the first character",
+  "difficulty": "medium",
+  "file": "reverse.cpp",
+  "test": "test_reverse.cpp",
+  "summary": "`reverse_text(s)` should return the string backwards. `reverse_text(\"abc\")` should be `\"cba\"` but returns `\"cb\"`.",
+  "hint": "Does the loop ever visit index 0?"
+}

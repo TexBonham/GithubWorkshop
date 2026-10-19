@@ -1,0 +1,11 @@
+{
+  "id": "bug-46",
+  "number": 46,
+  "language": "cpp",
+  "title": "Power function multiplies one time too many",
+  "difficulty": "easy",
+  "file": "power.cpp",
+  "test": "test_power.cpp",
+  "summary": "`power(base, exp)` should return `base` raised to the whole-number `exp`. `power(2, 3)` should be `8` but returns `16`.",
+  "hint": "How many times should you multiply for an exponent of 3? Count the loop passes."
+}

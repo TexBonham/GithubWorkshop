@@ -1,0 +1,11 @@
+{
+  "id": "bug-28",
+  "number": 28,
+  "language": "javascript",
+  "title": "Clamp returns the wrong limit",
+  "difficulty": "medium",
+  "file": "clamp.js",
+  "test": "clamp.test.js",
+  "summary": "`clamp(value, min, max)` should keep `value` between `min` and `max`, e.g. `clamp(-5, 0, 10)` returns `0`. Right now it returns `10`.",
+  "hint": "Check which limit is returned when the value is too small."
+}

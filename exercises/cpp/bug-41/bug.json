@@ -1,0 +1,11 @@
+{
+  "id": "bug-41",
+  "number": 41,
+  "language": "cpp",
+  "title": "The number 1 is reported as prime",
+  "difficulty": "medium",
+  "file": "prime.cpp",
+  "test": "test_prime.cpp",
+  "summary": "`is_prime(n)` should return `true` only for prime numbers. 1 is not prime, but `is_prime(1)` returns `true`.",
+  "hint": "What is the smallest prime number? Check the early `return false` check."
+}

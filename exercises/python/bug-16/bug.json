@@ -1,0 +1,11 @@
+{
+  "id": "bug-16",
+  "number": 16,
+  "language": "python",
+  "title": "Missing items are reported at position 0",
+  "difficulty": "medium",
+  "file": "find_index.py",
+  "test": "test_find_index.py",
+  "summary": "`find_index(items, target)` should return the position of `target` in the list, or `-1` if it is not there. Right now `find_index([5, 6, 7], 99)` returns `0` instead of `-1`, so it looks like the item was found at the start.",
+  "hint": "Think about what the function returns when the loop finishes without finding anything."
+}

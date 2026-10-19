@@ -1,0 +1,11 @@
+{
+  "id": "bug-14",
+  "number": 14,
+  "language": "python",
+  "title": "Sales tax function will not even run",
+  "difficulty": "easy",
+  "file": "add_tax.py",
+  "test": "test_add_tax.py",
+  "summary": "`add_tax(price, rate)` should return the price plus tax, rounded to 2 decimal places. `add_tax(10, 0.25)` should return `12.5`, but Python reports an error before running anything.",
+  "hint": "Count the opening and closing parentheses on the return line."
+}

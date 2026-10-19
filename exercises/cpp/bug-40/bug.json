@@ -1,0 +1,11 @@
+{
+  "id": "bug-40",
+  "number": 40,
+  "language": "cpp",
+  "title": "Factorial always returns 0",
+  "difficulty": "easy",
+  "file": "factorial.cpp",
+  "test": "test_factorial.cpp",
+  "summary": "`factorial(n)` should return n! (the product 1 * 2 * ... * n, with `factorial(0) == 1`). `factorial(5)` should be `120` but returns `0`.",
+  "hint": "What happens when you multiply anything by the starting value of `result`?"
+}

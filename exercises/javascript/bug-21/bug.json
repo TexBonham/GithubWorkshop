@@ -1,0 +1,11 @@
+{
+  "id": "bug-21",
+  "number": 21,
+  "language": "javascript",
+  "title": "Even filter returns the odd numbers",
+  "difficulty": "easy",
+  "file": "evens.js",
+  "test": "evens.test.js",
+  "summary": "`evenNumbers(numbers)` should return only the even numbers, e.g. `evenNumbers([1, 2, 3, 4])` returns `[2, 4]`. Right now it returns `[1, 3]`.",
+  "hint": "Remember what the remainder of an even number divided by 2 is."
+}

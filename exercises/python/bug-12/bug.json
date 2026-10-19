@@ -1,0 +1,11 @@
+{
+  "id": "bug-12",
+  "number": 12,
+  "language": "python",
+  "title": "Clamp does not keep numbers under the maximum",
+  "difficulty": "easy",
+  "file": "clamp.py",
+  "test": "test_clamp.py",
+  "summary": "`clamp(value, low, high)` should return `low` if `value` is below `low`, `high` if `value` is above `high`, otherwise `value` itself. Right now `clamp(5, 0, 10)` returns `10` instead of `5`.",
+  "hint": "Read the comparison for the upper limit out loud. Is it asking the right question?"
+}

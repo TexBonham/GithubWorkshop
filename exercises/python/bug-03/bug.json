@@ -1,0 +1,11 @@
+{
+  "id": "bug-03",
+  "number": 3,
+  "language": "python",
+  "title": "Vowel counter misses some letters",
+  "difficulty": "easy",
+  "file": "count_vowels.py",
+  "test": "test_count_vowels.py",
+  "summary": "`count_vowels(text)` should count how many vowels (a, e, i, o, u) are in the text, ignoring upper/lower case. Right now `count_vowels(\"education\")` does not return `5`.",
+  "hint": "Look closely at the string of vowels."
+}

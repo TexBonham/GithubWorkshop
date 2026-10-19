@@ -1,0 +1,11 @@
+{
+  "id": "bug-50",
+  "number": 50,
+  "language": "cpp",
+  "title": "Leap years are almost never detected",
+  "difficulty": "medium",
+  "file": "leap.cpp",
+  "test": "test_leap.cpp",
+  "summary": "`is_leap_year(year)` should return `true` for years divisible by 4, except century years, unless divisible by 400. `is_leap_year(2024)` should be `true` but returns `false`.",
+  "hint": "Should a year need to pass BOTH checks, or just one of them?"
+}

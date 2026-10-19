@@ -1,0 +1,11 @@
+{
+  "id": "bug-18",
+  "number": 18,
+  "language": "javascript",
+  "title": "Countdown skips the last number",
+  "difficulty": "easy",
+  "file": "countdown.js",
+  "test": "countdown.test.js",
+  "summary": "`countdown(n)` should return an array counting down from `n` to `1`, e.g. `countdown(3)` returns `[3, 2, 1]`. Right now the `1` is missing.",
+  "hint": "Check the condition that keeps the loop running."
+}

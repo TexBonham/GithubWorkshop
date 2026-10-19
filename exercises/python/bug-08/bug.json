@@ -1,0 +1,11 @@
+{
+  "id": "bug-08",
+  "number": 8,
+  "language": "python",
+  "title": "FizzBuzz never says FizzBuzz",
+  "difficulty": "easy",
+  "file": "fizzbuzz.py",
+  "test": "test_fizzbuzz.py",
+  "summary": "`fizzbuzz(n)` should return `\"FizzBuzz\"` if `n` is divisible by both 3 and 5, `\"Fizz\"` if only by 3, `\"Buzz\"` if only by 5, otherwise `n` as text. Right now `fizzbuzz(15)` returns `\"Fizz\"`.",
+  "hint": "A number divisible by both 3 and 5 is divisible by what?"
+}

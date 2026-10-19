@@ -1,0 +1,11 @@
+{
+  "id": "bug-04",
+  "number": 4,
+  "language": "python",
+  "title": "Even numbers are reported as odd",
+  "difficulty": "easy",
+  "file": "is_even.py",
+  "test": "test_is_even.py",
+  "summary": "`is_even(n)` should return `True` when `n` is even and `False` when it is odd. Right now `is_even(4)` returns `False`.",
+  "hint": "What remainder does an even number leave when divided by 2?"
+}

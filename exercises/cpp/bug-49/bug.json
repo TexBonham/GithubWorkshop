@@ -1,0 +1,11 @@
+{
+  "id": "bug-49",
+  "number": 49,
+  "language": "cpp",
+  "title": "Even-number check will not compile",
+  "difficulty": "easy",
+  "file": "parity.cpp",
+  "test": "test_parity.cpp",
+  "summary": "`is_even(n)` should return `true` when `n` is even and `false` otherwise (including for negative numbers). `is_even(4)` should be `true`, but the file does not compile.",
+  "hint": "In C++, which operator asks 'are these equal?' and which one stores a value?"
+}

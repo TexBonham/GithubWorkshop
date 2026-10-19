@@ -1,0 +1,11 @@
+{
+  "id": "bug-47",
+  "number": 47,
+  "language": "cpp",
+  "title": "Index of smallest value finds the largest instead",
+  "difficulty": "medium",
+  "file": "minimum.cpp",
+  "test": "test_minimum.cpp",
+  "summary": "`index_of_min(values)` should return the index of the smallest number in a non-empty vector. `index_of_min({4, 2, 9})` should be `1` but returns `2`.",
+  "hint": "Read the comparison out loud. Is it looking for something bigger or smaller?"
+}

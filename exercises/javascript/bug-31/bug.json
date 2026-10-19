@@ -1,0 +1,11 @@
+{
+  "id": "bug-31",
+  "number": 31,
+  "language": "javascript",
+  "title": "Reverse string will not run",
+  "difficulty": "easy",
+  "file": "reverse.js",
+  "test": "reverse.test.js",
+  "summary": "`reverseString(text)` should return the text backwards, e.g. `reverseString(\"abc\")` returns `\"cba\"`. Right now the file will not even load because of a syntax error.",
+  "hint": "Count the opening and closing parentheses on the `return` line."
+}

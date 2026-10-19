@@ -1,0 +1,11 @@
+{
+  "id": "bug-45",
+  "number": 45,
+  "language": "cpp",
+  "title": "Greatest common divisor always returns 0",
+  "difficulty": "medium",
+  "file": "gcd.cpp",
+  "test": "test_gcd.cpp",
+  "summary": "`gcd(a, b)` should return the greatest common divisor using Euclid's algorithm. `gcd(12, 18)` should be `6` but returns `0`.",
+  "hint": "When the loop ends, which variable holds the answer?"
+}

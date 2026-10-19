@@ -1,0 +1,11 @@
+{
+  "id": "bug-39",
+  "number": 39,
+  "language": "cpp",
+  "title": "Counting readings above a threshold also counts equal ones",
+  "difficulty": "easy",
+  "file": "threshold.cpp",
+  "test": "test_threshold.cpp",
+  "summary": "`count_above(readings, limit)` should count how many readings are strictly greater than `limit`. `count_above({5, 5, 5}, 5)` should be `0` but returns `3`.",
+  "hint": "Look closely at the comparison operator: is 'equal to the limit' above the limit?"
+}

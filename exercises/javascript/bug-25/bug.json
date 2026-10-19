@@ -1,0 +1,11 @@
+{
+  "id": "bug-25",
+  "number": 25,
+  "language": "javascript",
+  "title": "Initials come out lowercase",
+  "difficulty": "medium",
+  "file": "initials.js",
+  "test": "initials.test.js",
+  "summary": "`initials(name)` should return the first letter of each word, in capitals. `initials(\"Ada Lovelace\")` returns `\"AL\"` correctly, but `initials(\"grace hopper\")` should return `\"GH\"` and returns `\"gh\"`.",
+  "hint": "Each letter is taken correctly. What should happen to it before it's added?"
+}

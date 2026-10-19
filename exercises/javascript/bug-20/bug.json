@@ -1,0 +1,11 @@
+{
+  "id": "bug-20",
+  "number": 20,
+  "language": "javascript",
+  "title": "Sum of an array is too big",
+  "difficulty": "easy",
+  "file": "sum.js",
+  "test": "sum.test.js",
+  "summary": "`sumArray(numbers)` should add up every number in the array, e.g. `sumArray([1, 2, 3])` returns `6`. Right now it returns `7`.",
+  "hint": "Check what the total starts as before the loop."
+}

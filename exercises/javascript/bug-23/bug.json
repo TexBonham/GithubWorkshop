@@ -1,0 +1,11 @@
+{
+  "id": "bug-23",
+  "number": 23,
+  "language": "javascript",
+  "title": "Celsius to Fahrenheit gives the wrong temperature",
+  "difficulty": "easy",
+  "file": "temperature.js",
+  "test": "temperature.test.js",
+  "summary": "`celsiusToFahrenheit(c)` should convert using `c * 9 / 5 + 32`, e.g. `celsiusToFahrenheit(100)` returns `212`. Right now it returns about `87.8`.",
+  "hint": "Compare the fraction in the code with the conversion formula."
+}

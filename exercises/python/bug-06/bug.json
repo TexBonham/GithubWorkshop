@@ -1,0 +1,11 @@
+{
+  "id": "bug-06",
+  "number": 6,
+  "language": "python",
+  "title": "Reversed text comes out unchanged",
+  "difficulty": "easy",
+  "file": "reverse_string.py",
+  "test": "test_reverse_string.py",
+  "summary": "`reverse_string(text)` should return the text backwards. Right now `reverse_string(\"abc\")` returns `\"abc\"` instead of `\"cba\"`.",
+  "hint": "Which side of `result` is each new letter being added to?"
+}

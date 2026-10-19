@@ -1,0 +1,11 @@
+{
+  "id": "bug-37",
+  "number": 37,
+  "language": "cpp",
+  "title": "Celsius to Fahrenheit conversion is far too low",
+  "difficulty": "easy",
+  "file": "temperature.cpp",
+  "test": "test_temperature.cpp",
+  "summary": "`celsius_to_fahrenheit(c)` should return `c * 9/5 + 32`. `celsius_to_fahrenheit(100)` should be `212` but it returns `132`.",
+  "hint": "What is `9 / 5` in C++ when both numbers are whole numbers?"
+}

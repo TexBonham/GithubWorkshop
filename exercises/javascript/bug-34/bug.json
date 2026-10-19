@@ -1,0 +1,11 @@
+{
+  "id": "bug-34",
+  "number": 34,
+  "language": "javascript",
+  "title": "Last item comes back undefined",
+  "difficulty": "easy",
+  "file": "last.js",
+  "test": "last.test.js",
+  "summary": "`lastItem(items)` should return the final element of an array, e.g. `lastItem([1, 2, 3])` returns `3`. Right now it returns `undefined`.",
+  "hint": "Array positions start at 0, so the final position is one less than the length."
+}

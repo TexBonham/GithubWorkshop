@@ -1,0 +1,11 @@
+{
+  "id": "bug-01",
+  "number": 1,
+  "language": "python",
+  "title": "Average of a list comes out wrong",
+  "difficulty": "easy",
+  "file": "average.py",
+  "test": "test_average.py",
+  "summary": "`average(numbers)` should return the mean of a list of numbers: add them all up, then divide by how many there are. Right now `average([2, 4, 6])` does not return `4`.",
+  "hint": "Look at what the total is divided by."
+}

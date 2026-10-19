@@ -1,0 +1,11 @@
+{
+  "id": "bug-09",
+  "number": 9,
+  "language": "python",
+  "title": "A score of exactly 90 does not get an A",
+  "difficulty": "easy",
+  "file": "grade_letter.py",
+  "test": "test_grade_letter.py",
+  "summary": "`grade_letter(score)` should return `\"A\"` for 90 and above, `\"B\"` for 80-89, `\"C\"` for 70-79, `\"D\"` for 60-69, otherwise `\"F\"`. Right now `grade_letter(90)` returns `\"B\"`.",
+  "hint": "Compare how the A check and the B check treat their boundary number."
+}

@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git and GitHub Workshop</title>
+  <meta name="description" content="Slides for a 72-minute hands-on intro to Git and GitHub, taught in VS Code.">
+  <link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<main class="deck">
+
+<!-- ===== Section 0: Welcome ===== -->
+<section class="slide title-slide" data-section="Welcome" data-at="0:00">
+  <div class="kicker">Hands-on workshop</div>
+  <h1>Git &amp; GitHub<br>from zero</h1>
+  <p class="lead">Save your work, undo mistakes, build things with other people.</p>
+  <p class="small">Slides: <a href="https://texbonham.github.io/GithubWorkshop/">texbonham.github.io/GithubWorkshop</a> · Repo: <a data-repo-link="text" href="https://github.com/TexBonham/GithubWorkshop">github.com/TexBonham/GithubWorkshop</a></p>
+  <aside class="notes">
+    <ul>
+      <li>[0:00] Welcome. Have VS Code open and be signed in to GitHub. Anyone who skipped SETUP.md: raise a hand now, a helper comes to you.</li>
+      <li>Promise for today: by the end you will have made real commits, opened real pull requests, fixed a conflict, and fixed a bug that a robot checks.</li>
+      <li>Press N to hide these notes, F for fullscreen.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Today, in 72 minutes</h2>
+  <div class="table-wrap">
+  <table class="simple">
+    <tr><th>Min</th><th>What</th><th>You</th></tr>
+    <tr><td>0–10</td><td>What Git and GitHub are</td><td>listen</td></tr>
+    <tr><td>10–15</td><td>Clone the repo in VS Code</td><td>follow along</td></tr>
+    <tr><td>15–30</td><td><strong>Lab 1</strong> · branch, commit, push, pull request</td><td>hands-on</td></tr>
+    <tr><td>30–40</td><td><strong>Lab 2</strong> · fix a merge conflict</td><td>hands-on</td></tr>
+    <tr><td>40–45</td><td>History and undo</td><td>watch</td></tr>
+    <tr><td>45–60</td><td><strong>Lab 3</strong> · fix a real bug, get it reviewed</td><td>hands-on</td></tr>
+    <tr><td>60–72</td><td>Engineering projects, best practices, poll</td><td>listen</td></tr>
+  </table>
+  </div>
+  <p class="small">Lost? Every step is in <a href="https://github.com/TexBonham/GithubWorkshop/blob/main/LABS.md">LABS.md</a> · commands on the <a href="cheatsheet.html">cheat sheet</a></p>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Mostly doing, little lecture. Three labs, each builds on the last.</li>
+      <li>Point out LABS.md and the cheat sheet: if you fall behind, read ahead there, nobody gets left behind.</li>
+      <li>Helpers walk the room during labs. Sticky-note / raise-hand convention if you use one.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 1: What Git and GitHub are ===== -->
+<section class="slide divider" data-section="1 · What Git and GitHub are" data-at="1:00">
+  <div class="kicker">Part 1</div>
+  <h1>What are Git and GitHub?</h1>
+  <aside class="notes">
+    <ul>
+      <li>[1:00] Target: finish Part 1 by ~6:00.</li>
+      <li>Quick poll by hands: who has used Git before? Who has emailed a file called final_v2_REAL.docx?</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Sound familiar?</h2>
+  <pre><code>report.docx
+report_v2.docx
+report_v2_final.docx
+report_v2_final_FIXED.docx
+report_v2_final_FIXED_use_this_one.docx</code></pre>
+  <p class="lead">Which one is real? What changed? Who changed it?</p>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Everyone has done this. It breaks down with two or more people, and with code it breaks fast.</li>
+      <li>Version control answers: what changed, when, who, and why, and lets you go back.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Git</h2>
+  <ul class="big">
+    <li>A program on <strong>your computer</strong></li>
+    <li>Takes <strong>snapshots</strong> of a project folder</li>
+    <li>Each snapshot = a <strong>commit</strong>: what changed, who, when, why</li>
+    <li>Works offline, free, open source</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Define: <em>repository</em> (repo) = a project folder that Git is tracking, including its full history.</li>
+      <li><em>Commit</em> = a saved snapshot plus a short message. Think "save point in a video game".</li>
+      <li>Git was written in 2005 by Linus Torvalds to manage the Linux kernel. It is now the industry standard.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>GitHub</h2>
+  <ul class="big">
+    <li>A <strong>website</strong> that hosts Git repos</li>
+    <li>Share, back up, and collaborate</li>
+    <li>Adds teamwork tools: pull requests, issues, reviews, automated checks</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] GitHub is one host; GitLab and Bitbucket are others. Git works the same with all of them.</li>
+      <li>Your GitHub profile also doubles as a portfolio employers look at.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Git vs GitHub</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Git</h3>
+      <ul>
+        <li>Tool you install</li>
+        <li>Runs on your laptop</li>
+        <li>Tracks history</li>
+        <li>Like: a camera</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>GitHub</h3>
+      <ul>
+        <li>Website you sign in to</li>
+        <li>Runs in the cloud</li>
+        <li>Shares history with others</li>
+        <li>Like: a shared photo album</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] The most common beginner confusion. You can use Git without GitHub; GitHub is useless without Git.</li>
+      <li>VS Code is a third thing: an editor that gives Git a friendly button interface.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Why engineers use version control</h2>
+  <ul>
+    <li><strong>Undo</strong> anything, any time</li>
+    <li><strong>Work in parallel</strong> without overwriting each other</li>
+    <li><strong>Traceability</strong> · why did this change? who approved it?</li>
+    <li><strong>Backup</strong> · laptop dies, project lives</li>
+    <li><strong>Expected</strong> in every internship and job</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1.5 min] Engineering angle: design reviews, traceability for safety-critical work, reproducing exactly what was tested.</li>
+      <li>Not only code: firmware, scripts, LaTeX reports, config files, documentation.</li>
+      <li>Senior design teams that skip this lose work every semester.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 2: Getting started ===== -->
+<section class="slide divider" data-section="2 · Getting started" data-at="6:00">
+  <div class="kicker">Part 2</div>
+  <h1>Getting set up</h1>
+  <aside class="notes">
+    <ul>
+      <li>[6:00] Most of this was homework in SETUP.md. Move fast; helpers fix stragglers.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Three things you need</h2>
+  <ol>
+    <li>A <strong>GitHub account</strong> · <span class="small">github.com/signup</span></li>
+    <li><strong>Git</strong> installed · <span class="small">git-scm.com (Windows) · <code>xcode-select --install</code> (macOS)</span></li>
+    <li><strong>VS Code</strong>, signed in to GitHub · <span class="small">Accounts icon, bottom-left</span></li>
+  </ol>
+  <p class="small">Students: get the free <a href="https://education.github.com/pack">GitHub Student Developer Pack</a>.</p>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Sign-in: VS Code or Git's Credential Manager opens a browser, you click Allow. That's it, no keys or tokens today.</li>
+      <li>Linux users: your package manager has git; you'll manage.</li>
+      <li>Everyone should have accepted the collaborator invite (email or github.com/TexBonham/GithubWorkshop/invitations). If not, do it now.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Tell Git who you are</h2>
+  <p>Once per computer. Every commit gets stamped with this.</p>
+  <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+  <p class="small">Use the email on your GitHub account, or GitHub's private <em>noreply</em> address (Settings → Emails).</p>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] This is the one thing we must do in a terminal. In VS Code: Terminal → New Terminal.</li>
+      <li>If the email doesn't match your GitHub account, your commits won't link to your profile (they still work).</li>
+      <li>Check with <code>git config --global --list</code>.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>A tour of a GitHub repo</h2>
+  <ul>
+    <li><strong>Code</strong> · files, folders, the README shown below them</li>
+    <li><strong>Branch menu</strong> · switch which version you're looking at</li>
+    <li><strong>Commits</strong> · the history, clock icon</li>
+    <li><strong>Issues</strong> · task and bug list</li>
+    <li><strong>Pull requests</strong> · proposed changes</li>
+    <li><strong>Actions</strong> · automatic checks</li>
+  </ul>
+  <p class="small">Open <a data-repo-link="text" href="https://github.com/TexBonham/GithubWorkshop">github.com/TexBonham/GithubWorkshop</a></p>
+  <aside class="notes">
+    <ul>
+      <li>[~2 min] Switch to the browser and click through the real repo. Show README rendering, the commit history, Issues (the [Bug NN] list we use in Lab 3), Pull requests (empty for now).</li>
+      <li>The green "Code" button is where the clone URL lives.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 3: Fundamentals ===== -->
+<section class="slide divider" data-section="3 · Fundamentals" data-at="9:00">
+  <div class="kicker">Part 3</div>
+  <h1>How Git thinks</h1>
+  <p class="lead">Local vs remote</p>
+  <aside class="notes">
+    <ul>
+      <li>[9:00] The most important mental model of the day. If they get this slide, everything else is buttons.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Four places your work lives</h2>
+  <svg class="flow flow-wide" viewBox="0 0 1110 300" role="img" aria-label="Working folder, add, staging area, commit, local repository, push, GitHub. Pull brings changes from GitHub back to your working folder.">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker>
+      <marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead back" d="M0,0 L10,5 L0,10 z"/></marker>
+    </defs>
+    <rect class="zone" x="6" y="40" width="796" height="196" rx="14"/>
+    <text class="zonelabel" x="20" y="30">YOUR COMPUTER (LOCAL)</text>
+    <rect class="zone" x="876" y="40" width="228" height="196" rx="14"/>
+    <text class="zonelabel" x="890" y="30">GITHUB (REMOTE)</text>
+    <rect class="box" x="20" y="80" width="200" height="110" rx="12"/>
+    <text class="label" x="120" y="128" text-anchor="middle">Working folder</text>
+    <text class="sub" x="120" y="155" text-anchor="middle">files you edit</text>
+    <rect class="box local" x="310" y="80" width="200" height="110" rx="12"/>
+    <text class="label" x="410" y="128" text-anchor="middle">Staging area</text>
+    <text class="sub" x="410" y="155" text-anchor="middle">"put in next commit"</text>
+    <rect class="box local" x="600" y="80" width="190" height="110" rx="12"/>
+    <text class="label" x="695" y="128" text-anchor="middle">Local repo</text>
+    <text class="sub" x="695" y="155" text-anchor="middle">your commits</text>
+    <rect class="box remote" x="890" y="80" width="200" height="110" rx="12"/>
+    <text class="label" x="990" y="128" text-anchor="middle">Remote repo</text>
+    <text class="sub" x="990" y="155" text-anchor="middle">shared on GitHub</text>
+    <line class="arrow" x1="224" y1="135" x2="304" y2="135" marker-end="url(#ah)"/>
+    <text class="verb" x="264" y="122" text-anchor="middle">add</text>
+    <line class="arrow" x1="514" y1="135" x2="594" y2="135" marker-end="url(#ah)"/>
+    <text class="verb" x="554" y="122" text-anchor="middle">commit</text>
+    <line class="arrow" x1="794" y1="135" x2="884" y2="135" marker-end="url(#ah)"/>
+    <text class="verb" x="839" y="122" text-anchor="middle">push</text>
+    <path class="arrow back" d="M990 194 C 990 285, 120 285, 120 198" marker-end="url(#ahb)"/>
+    <text class="verb back" x="555" y="268" text-anchor="middle">pull (and clone, the first time)</text>
+  </svg>
+  <svg class="flow flow-tall" viewBox="0 0 400 660" role="img" aria-label="Working folder, add, staging area, commit, local repository, push, GitHub. Pull brings changes from GitHub back to your working folder.">
+    <defs>
+      <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker>
+      <marker id="ahb2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead back" d="M0,0 L10,5 L0,10 z"/></marker>
+    </defs>
+    <rect class="zone" x="56" y="24" width="334" height="418" rx="14"/>
+    <text class="zonelabel" x="66" y="16">YOUR COMPUTER</text>
+    <rect class="zone" x="56" y="490" width="334" height="140" rx="14"/>
+    <text class="zonelabel" x="66" y="482">GITHUB</text>
+    <rect class="box" x="80" y="40" width="290" height="88" rx="12"/>
+    <text class="label" x="225" y="80" text-anchor="middle">Working folder</text>
+    <text class="sub" x="225" y="106" text-anchor="middle">files you edit</text>
+    <rect class="box local" x="80" y="186" width="290" height="88" rx="12"/>
+    <text class="label" x="225" y="226" text-anchor="middle">Staging area</text>
+    <text class="sub" x="225" y="252" text-anchor="middle">"put in next commit"</text>
+    <rect class="box local" x="80" y="332" width="290" height="88" rx="12"/>
+    <text class="label" x="225" y="372" text-anchor="middle">Local repo</text>
+    <text class="sub" x="225" y="398" text-anchor="middle">your commits</text>
+    <rect class="box remote" x="80" y="514" width="290" height="88" rx="12"/>
+    <text class="label" x="225" y="554" text-anchor="middle">Remote repo</text>
+    <text class="sub" x="225" y="580" text-anchor="middle">shared on GitHub</text>
+    <line class="arrow" x1="225" y1="132" x2="225" y2="180" marker-end="url(#ah2)"/>
+    <text class="verb" x="240" y="162">add</text>
+    <line class="arrow" x1="225" y1="278" x2="225" y2="326" marker-end="url(#ah2)"/>
+    <text class="verb" x="240" y="308">commit</text>
+    <line class="arrow" x1="225" y1="424" x2="225" y2="508" marker-end="url(#ah2)"/>
+    <text class="verb" x="240" y="472">push</text>
+    <path class="arrow back" d="M76 558 L 30 558 L 30 84 L 72 84" marker-end="url(#ahb2)"/>
+    <text class="verb back" x="22" y="330" text-anchor="middle" transform="rotate(-90 22 330)">pull / clone</text>
+  </svg>
+  <aside class="notes">
+    <ul>
+      <li>[~3 min] Walk left to right. Working folder: normal files. Staging: you choose which changes go in the next snapshot. Local repo: snapshots saved on your laptop only. Remote: the copy on GitHub everyone shares.</li>
+      <li>Key point: <strong>commit is local</strong>. Nobody sees it until you push. Pull brings others' commits down.</li>
+      <li>Analogy: staging = items in your shopping cart, commit = checkout, push = shipping it to everyone.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Getting a repo</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Start fresh</h3>
+      <p>Turn a folder into a repo</p>
+      <p>VS Code: Source Control → <strong>Initialize Repository</strong></p>
+      <span class="cmd"><code>git init</code></span>
+    </div>
+    <div class="card">
+      <h3>Copy an existing one</h3>
+      <p>Download a repo + all its history</p>
+      <p>VS Code: <strong>Clone Git Repository…</strong></p>
+      <span class="cmd"><code>git clone &lt;url&gt;</code></span>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] init: for your own new projects. clone: for joining an existing project, which is what we do today.</li>
+      <li>A clone automatically remembers where it came from; that remote is called <code>origin</code>.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>The everyday loop</h2>
+  <ol>
+    <li><strong>Pull</strong> · get the latest<span class="cmd"><code>git pull</code></span></li>
+    <li><strong>Edit</strong> files</li>
+    <li><strong>Stage</strong> · click <code>+</code> next to the file<span class="cmd"><code>git add &lt;file&gt;</code></span></li>
+    <li><strong>Commit</strong> · type a message, click Commit<span class="cmd"><code>git commit -m "Message"</code></span></li>
+    <li><strong>Push</strong> · Sync Changes / Publish Branch<span class="cmd"><code>git push</code></span></li>
+  </ol>
+  <aside class="notes">
+    <ul>
+      <li>[~1.5 min] This is 90% of Git. Small grey text = the terminal equivalent; you never have to type it today but it's good to recognize.</li>
+      <li><code>git status</code> answers "what's going on?" at any moment; VS Code's Source Control panel is a live git status.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide lab" data-at="10:00">
+  <div class="kicker">Follow along · Lab 0</div>
+  <h2>Clone the workshop repo</h2>
+  <ol>
+    <li>VS Code: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> → <strong>Git: Clone</strong></li>
+    <li>Paste <code>https://github.com/TexBonham/GithubWorkshop</code></li>
+    <li>Pick a folder (Desktop is fine) → <strong>Open</strong></li>
+    <li>Find: Source Control icon · branch name bottom-left (<code>main</code>)</li>
+  </ol>
+  <span class="cmd">Terminal: <code>git clone https://github.com/TexBonham/GithubWorkshop.git</code></span>
+  <p class="labfoot">Full steps in <a href="https://github.com/TexBonham/GithubWorkshop/blob/main/LABS.md#lab-0-clone-and-tour-follow-along">LABS.md</a></p>
+  <aside class="notes">
+    <ul>
+      <li>[10:00–15:00] Do it live on the projector, slowly. Wait for most hands before moving on.</li>
+      <li>If a browser sign-in pops up: click Allow / Authorize.</li>
+      <li>Tour: Explorer (files), Source Control (third icon, branch-shaped), status bar branch name + sync arrows. Open ATTENDEES.md so they see the marker.</li>
+      <li>Common snags: "git not found" means Git isn't installed or VS Code needs a restart. "Open in new window?" either is fine.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 4: Branches and pull requests ===== -->
+<section class="slide divider" data-section="4 · Branches and pull requests" data-at="15:00">
+  <div class="kicker">Part 4</div>
+  <h1>Branches &amp; pull requests</h1>
+  <aside class="notes">
+    <ul>
+      <li>[15:00] Three slides of concept, then Lab 1. Keep it under 3 minutes.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>A branch is a parallel line of work</h2>
+  <ul>
+    <li><code>main</code> = the official version</li>
+    <li>Make a branch, experiment safely, <code>main</code> stays clean</li>
+    <li>One branch per task</li>
+  </ul>
+  <p>VS Code: click the branch name (bottom-left) → <strong>Create new branch…</strong></p>
+  <span class="cmd"><code>git switch -c name/your-username</code> · switch back: <code>git switch main</code></span>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Branches are cheap: just a label pointing at a commit. Make them freely.</li>
+      <li>Switching branches changes the files in your folder to match that branch. Commit (or discard) before switching.</li>
+      <li>In this repo, <code>main</code> is protected: nobody, including you, can push to it directly. Everything goes through a pull request.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Pull request (PR)</h2>
+  <p class="big">"Here's my branch. Please review it and <strong>merge</strong> it into <code>main</code>."</p>
+  <ul>
+    <li>Shows exactly what changed</li>
+    <li>Teammates comment and approve</li>
+    <li>Automatic checks run (ours: <strong>Workshop check</strong>)</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] <em>Merge</em> = combine the commits of one branch into another.</li>
+      <li>Our robot "Workshop check" runs on every PR. In Lab 1 it just checks you only edited ATTENDEES.md. Green check = good, red X = click Details and read the message.</li>
+      <li>The instructor merges PRs today.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide lab" data-at="17:00">
+  <div class="kicker">Hands-on · Lab 1 · 15 min</div>
+  <h2>Sign the guestbook</h2>
+  <ol>
+    <li>On <code>main</code>? <strong>Pull</strong> first</li>
+    <li>New branch: <code>name/&lt;your-github-username&gt;</code></li>
+    <li>In <code>ATTENDEES.md</code>, add <strong>one line directly under the marker</strong>:<br><code>- Your Name (@your-username) — your major</code></li>
+    <li>Save → stage <code>+</code> → message <em>Add Your Name to attendees</em> → Commit</li>
+    <li><strong>Publish Branch</strong></li>
+    <li>GitHub: <strong>Compare &amp; pull request</strong> → Create</li>
+    <li>Watch <strong>Workshop check</strong> turn green</li>
+  </ol>
+  <p class="labfoot">Full steps in <a href="https://github.com/TexBonham/GithubWorkshop/blob/main/LABS.md#lab-1-sign-the-guestbook">LABS.md</a> · Done early? Look at someone else's PR.</p>
+  <aside class="notes">
+    <ul>
+      <li>[17:00–30:00] Demo steps 1–5 on the projector once, then let them go.</li>
+      <li>Emphasize: directly under the marker, not at the bottom. This is on purpose (it sets up Lab 2).</li>
+      <li>Don't merge anything for the first ~8 minutes. Then start merging PRs a few at a time; that's what creates the Lab 2 conflicts.</li>
+      <li>Snags: committed on main by accident → helper moves it to a branch. Check red → usually edited another file; read Details.</li>
+      <li>Push from VS Code may prompt a browser sign-in: Allow.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 5: Merge conflicts ===== -->
+<section class="slide divider" data-section="5 · Merge conflicts" data-at="30:00">
+  <div class="kicker">Part 5</div>
+  <h1>Merge conflicts</h1>
+  <p class="lead">Not an error. A question.</p>
+  <aside class="notes">
+    <ul>
+      <li>[30:00] By now several PRs are merged, so most remaining PRs say "This branch has conflicts that must be resolved". That's the lab.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Why your PR conflicts</h2>
+  <ul>
+    <li>Everyone added a line in the <strong>same spot</strong></li>
+    <li><code>main</code> moved on since you branched</li>
+    <li>Git can't guess which line goes first, so it <strong>asks you</strong></li>
+  </ul>
+  <div class="conflict">
+    <div class="mark">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (yours, "current")</div>
+    <div class="ours">- Sam Lee (@samlee) — Mechanical Engineering</div>
+    <div class="mark">=======</div>
+    <div class="theirs">- Ana Ruiz (@anaruiz) — Computer Science</div>
+    <div class="mark">&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main (theirs, "incoming")</div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[~2 min] Conflicts happen only when two branches change the same lines. Different files or far-apart lines merge automatically.</li>
+      <li>The markers are just text Git writes into the file. Resolving = editing the file so it's what you want, deleting the marker lines, and committing.</li>
+      <li>Here the right answer is obvious: keep both names.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide lab" data-at="32:00">
+  <div class="kicker">Hands-on · Lab 2 · 8 min</div>
+  <h2>Resolve your conflict</h2>
+  <ol>
+    <li>On your <code>name/…</code> branch: <strong>… → Fetch</strong></li>
+    <li><strong>… → Branch → Merge…</strong> → pick <code>origin/main</code><span class="cmd"><code>git pull origin main</code></span></li>
+    <li>Open <code>ATTENDEES.md</code> → <strong>Accept Both Changes</strong></li>
+    <li>Keep every name. Delete nothing. No <code>&lt;&lt;&lt;</code> left.</li>
+    <li>Save → stage <code>+</code> → Commit → <strong>Sync Changes</strong></li>
+    <li>Your PR updates itself; check goes green</li>
+  </ol>
+  <p class="labfoot">Stuck? GitHub's <strong>Resolve conflicts</strong> button on the PR works too. Full steps in <a href="https://github.com/TexBonham/GithubWorkshop/blob/main/LABS.md#lab-2-resolve-a-merge-conflict">LABS.md</a></p>
+  <aside class="notes">
+    <ul>
+      <li>[32:00–40:00] Demo once with your own test branch. VS Code shows the conflict inline with clickable "Accept Current | Accept Incoming | Accept Both". The Merge Editor button gives a 3-pane view; "Accept Combination" is the same idea.</li>
+      <li>The merge commit message is pre-filled; just click Commit.</li>
+      <li>Keep merging PRs as they go green; some people will conflict twice. That's realistic, repeat the steps.</li>
+      <li>No conflict? Your PR was merged early, or nobody's merged yet. Help a neighbor.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 6: History and undo ===== -->
+<section class="slide divider" data-section="6 · History and undo" data-at="40:00">
+  <div class="kicker">Part 6 · demo</div>
+  <h1>History &amp; undo</h1>
+  <aside class="notes">
+    <ul>
+      <li>[40:00] Instructor demo, 5 minutes. Attendees watch; hands off keyboards.</li>
+      <li>Do the revert on a demo branch (e.g. <code>demo/revert</code>), never directly on main.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Viewing history</h2>
+  <ul>
+    <li>VS Code: <strong>Source Control Graph</strong> · every commit, every branch</li>
+    <li>VS Code: <strong>Timeline</strong> (Explorer, bottom) · one file's history</li>
+    <li>GitHub: the <strong>commits</strong> link (clock icon)</li>
+  </ul>
+  <pre><code>git log --oneline --graph</code></pre>
+  <aside class="notes">
+    <ul>
+      <li>[~2 min] Show the graph after Lab 1/2: lots of name branches merging into main. Point out a merge commit with two parents.</li>
+      <li>Each commit has an ID (SHA), like <code>3f2a9c1</code>. The first 7 characters are enough.</li>
+      <li>Click a commit to see its diff. Good commit messages make this readable; bad ones ("stuff") make it useless.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Undo, safely</h2>
+  <div class="table-wrap">
+  <table class="simple">
+    <tr><th>Situation</th><th>VS Code</th><th>Terminal</th></tr>
+    <tr><td>Throw away unsaved edits to a file</td><td>Discard Changes ↶</td><td><code>git restore &lt;file&gt;</code></td></tr>
+    <tr><td>Unstage a file</td><td>Unstage −</td><td><code>git restore --staged &lt;file&gt;</code></td></tr>
+    <tr><td>Undo a commit that's already pushed</td><td>(terminal)</td><td><code>git revert &lt;sha&gt;</code></td></tr>
+  </table>
+  </div>
+  <p class="small"><code>revert</code> adds a <em>new</em> commit that undoes an old one. History stays honest. <code>git reset</code> also exists: it rewrites history, so be careful and never on shared branches.</p>
+  <aside class="notes">
+    <ul>
+      <li>[~3 min] Demo: make a bad commit on demo/revert, push, <code>git log --oneline</code>, copy the SHA, <code>git revert &lt;sha&gt;</code>, save the default message, push. Show both commits in the graph.</li>
+      <li>Discard Changes is permanent for uncommitted work. Committed work is almost never lost.</li>
+      <li>Reset: mention only. It's how people lose work and break teammates' clones.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 7: Collaboration ===== -->
+<section class="slide divider" data-section="7 · Collaboration" data-at="45:00">
+  <div class="kicker">Part 7</div>
+  <h1>Working as a team</h1>
+  <p class="lead">Issues · reviews · checks</p>
+  <aside class="notes">
+    <ul>
+      <li>[45:00] Two concept slides then Lab 3. The repo has 50 bug issues, more than there are people.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Issues: the team's to-do list</h2>
+  <ul>
+    <li>One issue = one task or bug</li>
+    <li><strong>Labels</strong> to filter · <strong>Assignee</strong> = who's on it</li>
+    <li>A PR that says <code>Closes #12</code> closes issue 12 when merged</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Show the Issues tab: filter by label <code>workshop-bug</code> and a language label.</li>
+      <li>Assigning yourself prevents two people fixing the same thing. Only pick unassigned issues.</li>
+      <li>Senior design: put every task in issues; it doubles as your progress log for advisors.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Code review</h2>
+  <ul>
+    <li>PR → <strong>Files changed</strong> → read the diff</li>
+    <li>Click a line to comment</li>
+    <li><strong>Review changes</strong> → Comment / Approve / Request changes</li>
+    <li>Be kind and specific</li>
+  </ul>
+  <div class="cols">
+    <div class="card"><h3>Collaborator</h3><p>Write access to the same repo. Teams, today.</p></div>
+    <div class="card"><h3>Fork</h3><p>Your own copy; PR back to the original. Open source.</p></div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[~1.5 min] Reviewing is a skill employers care about. Ask questions rather than issue commands: "Could this be zero?" beats "Wrong."</li>
+      <li>Fork vs collaborator: today you're collaborators, so you push branches here. To contribute to a project you don't have access to, you fork it, work in your copy, and open a PR back.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide lab" data-at="48:00">
+  <div class="kicker">Hands-on · Lab 3 · 12 min</div>
+  <h2>Fix a real bug</h2>
+  <ol>
+    <li>Issues → label <code>workshop-bug</code> → pick an <strong>unassigned</strong> one → <strong>assign yourself</strong></li>
+    <li>Switch to <code>main</code>, pull. New branch <code>fix/bug-NN</code></li>
+    <li>Edit <strong>only</strong> the file named in the issue (one-line fix)</li>
+    <li>Commit <em>Fix bug NN: …</em> → Publish Branch</li>
+    <li>Open PR, description: <code>Closes #&lt;issue number&gt;</code></li>
+    <li>Check red → <strong>Details</strong>, read, fix, push again. Green → request review</li>
+    <li>Review a classmate's PR</li>
+  </ol>
+  <p class="labfoot">Full steps in <a href="https://github.com/TexBonham/GithubWorkshop/blob/main/LABS.md#lab-3-fix-a-bug">LABS.md</a> · Optional local test: <code>python scripts/run_bug_test.py bug-NN</code></p>
+  <aside class="notes">
+    <ul>
+      <li>[48:00–60:00] NN is the two-digit bug number: bug 7 → <code>fix/bug-07</code>. The branch name must match or the check fails.</li>
+      <li>Python 01–17, JavaScript 18–34, C++ 35–50. You don't need to know the language; read the summary and hint, the bug is one line.</li>
+      <li>The check runs the bug's tests. Red with a test message = fix not right yet. Red with a "files" message = you edited something else.</li>
+      <li>Pushing again updates the same PR; never open a second one.</li>
+      <li>Local test needs that language installed; the GitHub check works regardless.</li>
+      <li>Instructor merges green PRs.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 8: Engineering projects ===== -->
+<section class="slide divider" data-section="8 · Engineering projects" data-at="60:00">
+  <div class="kicker">Part 8</div>
+  <h1>Git for real projects</h1>
+  <p class="lead">Senior design, research, internships</p>
+  <aside class="notes">
+    <ul>
+      <li>[60:00] Let people finish Lab 3 quietly while you talk. 10 minutes for this section.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Organize the repo</h2>
+  <pre><code>my-robot/
+├── README.md        what, why, how to run
+├── .gitignore       what Git should skip
+├── docs/            reports, diagrams
+├── src/             code, firmware
+├── hardware/        schematics (small exports)
+└── tests/</code></pre>
+  <aside class="notes">
+    <ul>
+      <li>[~1.5 min] Folder names matter less than consistency. Agree as a team on day one.</li>
+      <li>Look at this workshop repo as an example: docs/, exercises/, scripts/, a README at the top.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>READMEs: your project's front door</h2>
+  <div class="cols">
+    <pre><code># My Robot
+Line-following robot for ECE 4xx.
+
+## Setup
+1. Install **Python 3**
+2. Run `python main.py`
+
+- [Report](docs/report.pdf)</code></pre>
+    <ul>
+      <li><code>#</code> headings</li>
+      <li><code>**bold**</code>, <code>`code`</code></li>
+      <li><code>1.</code> / <code>-</code> lists</li>
+      <li><code>[text](link)</code></li>
+      <li>What it is · how to run · who · status</li>
+    </ul>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[~2 min] Markdown = plain text with light symbols; GitHub renders it nicely. The README is the first thing a recruiter sees.</li>
+      <li>This repo's README.md is written to be a model: open it after the workshop.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>What not to commit</h2>
+  <div class="cols">
+    <div class="card bad">
+      <h3>Keep out</h3>
+      <ul>
+        <li>Build output (<code>build/</code>, <code>*.exe</code>)</li>
+        <li>Huge CAD files, datasets, videos</li>
+        <li><strong>Secrets</strong>: passwords, API keys</li>
+      </ul>
+    </div>
+    <div class="card good">
+      <h3>Instead</h3>
+      <ul>
+        <li>List them in <code>.gitignore</code></li>
+        <li>Big binaries: <strong>Git LFS</strong> or shared drive</li>
+        <li>Secrets: a local file that's ignored</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[~2 min] .gitignore: one pattern per line, e.g. <code>build/</code>, <code>*.log</code>, <code>.env</code>. GitHub offers templates when you create a repo.</li>
+      <li>A pushed secret is public forever (bots scan GitHub within minutes). Rotate it, don't just delete the file.</li>
+      <li>Git LFS (Large File Storage) exists for big binary files; ask before using it on a team.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Habits that save teams</h2>
+  <ul>
+    <li><strong>Pull</strong> before you start</li>
+    <li><strong>One branch</strong> per task</li>
+    <li><strong>Small commits</strong>, often</li>
+    <li><strong>Good messages</strong>: <code>Fix motor stall at low PWM</code>, not <code>stuff</code></li>
+    <li>PR + review before <code>main</code></li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1.5 min] Good message: imperative mood, says what and why, under ~50 characters for the first line.</li>
+      <li>Senior design: protect main, use issues for tasks, review each other's PRs, write the README in week one, not the night before the demo.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide">
+  <h2>Free stuff for students</h2>
+  <p class="big"><a href="https://education.github.com/pack">GitHub Student Developer Pack</a></p>
+  <ul>
+    <li>Free GitHub Pro and Copilot while you're a student</li>
+    <li>Partner credits and tools</li>
+    <li>Host a portfolio site with GitHub Pages (like these slides)</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>[~1 min] Sign up with your school email. Approval can take a few days.</li>
+      <li>Offers change over time; check the page for the current list.</li>
+    </ul>
+  </aside>
+</section>
+
+<!-- ===== Section 9: Wrap-up ===== -->
+<section class="slide divider" data-section="9 · Wrap-up" data-at="68:00">
+  <div class="kicker">Wrap-up</div>
+  <h1>You just did real Git</h1>
+  <ul>
+    <li>Cloned, branched, committed, pushed</li>
+    <li>Opened PRs, fixed a conflict</li>
+    <li>Fixed a bug, passed a check, reviewed code</li>
+  </ul>
+  <p class="small">Keep the <a href="cheatsheet.html">cheat sheet</a> · <a href="https://github.com/TexBonham/GithubWorkshop/blob/main/LABS.md">LABS.md</a> to redo anything</p>
+  <aside class="notes">
+    <ul>
+      <li>[68:00] Quick recap. Applause for themselves.</li>
+      <li>Unfinished Lab 3? The issues stay open for a while; finish at home.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="slide center" id="poll" data-at="70:00">
+  <h2>Want to keep building?</h2>
+  <p>A long-term group workshop, <strong>biweekly or monthly</strong>: build a large-scale resume project together. Prep for internship applications and senior design.</p>
+  <div class="poll">
+    <div class="qr" id="poll-qr"></div>
+    <div>
+      <p>Vote in the poll:</p>
+      <p><a class="poll-link" id="poll-link" href="https://github.com/TexBonham/GithubWorkshop/discussions">github.com/TexBonham/GithubWorkshop/discussions</a></p>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>[70:00–72:00] Leave this up while people pack. Scan the QR or open the link; you're signed in to GitHub already, so voting is one click.</li>
+      <li>Pitch: real team project, PRs and reviews like at an internship, something substantial to put on a resume.</li>
+      <li>Thank helpers. Done.</li>
+    </ul>
+  </aside>
+</section>
+
+</main>
+
+<nav class="hud" aria-label="Slide controls">
+  <span class="section-name" id="section-name"></span>
+  <span class="clock hide-narrow" id="clock" title="Elapsed time (press T to reset)"></span>
+  <a href="cheatsheet.html" class="hide-narrow">Cheat sheet</a>
+  <button type="button" id="btn-notes" class="hide-narrow" title="Speaker notes (N)">Notes</button>
+  <button type="button" id="btn-overview" class="hide-narrow" title="Overview (O)">Grid</button>
+  <button type="button" id="btn-prev" aria-label="Previous slide">‹</button>
+  <span id="counter">1 / 1</span>
+  <button type="button" id="btn-next" aria-label="Next slide">›</button>
+</nav>
+
+<script src="js/config.js"></script>
+<script src="js/slides.js"></script>
+</body>
+</html>

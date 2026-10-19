@@ -1,0 +1,11 @@
+{
+  "id": "bug-10",
+  "number": 10,
+  "language": "python",
+  "title": "Palindrome check fails on capital letters",
+  "difficulty": "medium",
+  "file": "is_palindrome.py",
+  "test": "test_is_palindrome.py",
+  "summary": "`is_palindrome(text)` should return `True` if the text reads the same forwards and backwards, ignoring spaces and upper/lower case. Right now `is_palindrome(\"Racecar\")` returns `False`.",
+  "hint": "Is `R` the same as `r` to Python?"
+}

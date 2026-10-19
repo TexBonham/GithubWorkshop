@@ -1,0 +1,11 @@
+{
+  "id": "bug-32",
+  "number": 32,
+  "language": "javascript",
+  "title": "Average will not run",
+  "difficulty": "easy",
+  "file": "average.js",
+  "test": "average.test.js",
+  "summary": "`average(numbers)` should return the mean of the numbers, e.g. `average([2, 4, 6])` returns `4`. Right now the file will not even load because of a syntax error.",
+  "hint": "Every opening curly brace needs a closing one."
+}

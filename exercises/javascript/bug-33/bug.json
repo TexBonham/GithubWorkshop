@@ -1,0 +1,11 @@
+{
+  "id": "bug-33",
+  "number": 33,
+  "language": "javascript",
+  "title": "Vowel counter misses capital letters",
+  "difficulty": "medium",
+  "file": "vowels.js",
+  "test": "vowels.test.js",
+  "summary": "`countVowels(text)` should count the vowels (a, e, i, o, u) in any case, e.g. `countVowels(\"Apple\")` returns `2`. Right now it returns `1`.",
+  "hint": "The string of vowels is all lower case, so what happens to an upper case `A`?"
+}

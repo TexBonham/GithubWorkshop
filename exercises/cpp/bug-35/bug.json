@@ -1,0 +1,11 @@
+{
+  "id": "bug-35",
+  "number": 35,
+  "language": "cpp",
+  "title": "Largest value finder ignores negative numbers",
+  "difficulty": "easy",
+  "file": "largest.cpp",
+  "test": "test_largest.cpp",
+  "summary": "`largest(values)` should return the biggest number in a non-empty vector. It works for positive numbers, but `largest({-5, -2, -9})` should return `-2` and doesn't.",
+  "hint": "What value does `best` start at? Is that safe if every number is negative?"
+}

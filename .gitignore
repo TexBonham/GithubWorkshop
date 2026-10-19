@@ -1,0 +1,19 @@
+# Instructor-only answer keys and local toolchain config — never commit
+instructor/
+
+# Python
+__pycache__/
+*.pyc
+
+# Build output from C++ test runs
+*.exe
+*.out
+*.o
+*.obj
+*.pdb
+*.ilk
+
+# Editors / OS
+.vscode/
+.DS_Store
+Thumbs.db

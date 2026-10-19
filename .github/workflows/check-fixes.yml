@@ -1,0 +1,50 @@
+name: Workshop checks
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: workshop-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  workshop-check:
+    # Branch protection requires this exact, static name.
+    name: Workshop check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Run the checker from main, so a PR that edits scripts/ can't make itself pass.
+      - name: Use main's copy of the checker
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git checkout "$BASE_SHA" -- scripts
+
+      # PR text and branch names are attacker-controlled: pass them via env, never inline in run.
+      - name: Check this pull request
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: python scripts/ci/check_pr.py

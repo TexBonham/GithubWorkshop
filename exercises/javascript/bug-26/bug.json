@@ -1,0 +1,11 @@
+{
+  "id": "bug-26",
+  "number": 26,
+  "language": "javascript",
+  "title": "Leap year check says 1900 was a leap year",
+  "difficulty": "medium",
+  "file": "leapyear.js",
+  "test": "leapyear.test.js",
+  "summary": "`isLeapYear(year)` should return `true` for years divisible by 4, except century years, which must be divisible by 400. `isLeapYear(1900)` should be `false` but returns `true`.",
+  "hint": "Century years such as 1900 need to be divisible by 400, not just 100."
+}

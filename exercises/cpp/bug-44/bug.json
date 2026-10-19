@@ -1,0 +1,11 @@
+{
+  "id": "bug-44",
+  "number": 44,
+  "language": "cpp",
+  "title": "Kinetic energy is way too small",
+  "difficulty": "easy",
+  "file": "kinetic_energy.cpp",
+  "test": "test_kinetic_energy.cpp",
+  "summary": "`kinetic_energy(mass, velocity)` should return KE = ½ · m · v² (joules, for kg and m/s). A 2 kg object at 3 m/s should have `9.0` J, but the function returns `3.0`.",
+  "hint": "Compare the formula in the description with the return line. Is anything squared?"
+}
