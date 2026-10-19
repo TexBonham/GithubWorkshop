@@ -3,5 +3,5 @@
 // into a QR code and a plain link.
 window.WORKSHOP_CONFIG = {
   REPO_URL: "https://github.com/TexBonham/GithubWorkshop",
-  POLL_URL: "https://github.com/TexBonham/GithubWorkshop/discussions"
+  POLL_URL: "https://github.com/TexBonham/GithubWorkshop/discussions/1"
 };
