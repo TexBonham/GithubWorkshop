@@ -5,3 +5,5 @@ Lab 1: add **one line** with your name and GitHub username directly under the ma
 `- Your Name (@your-github-username) — your major`
 
 <!-- ADD YOUR LINE DIRECTLY BELOW THIS MARKER -->
+
+Ricardo A (@RicardoA99) - CS
